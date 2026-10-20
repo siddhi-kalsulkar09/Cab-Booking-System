@@ -17,7 +17,6 @@ const app = express();
 // ==================== MIDDLEWARE ====================
 app.use(cors({
   origin: [
-    "http://localhost:5173",
     "https://cab-booking-system-client.onrender.com"
   ],
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
