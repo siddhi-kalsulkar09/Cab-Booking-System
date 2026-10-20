@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import CabCard from "../components/CabCard";
+import { API_BASE_URL } from "../utils/constants";
 
 function Cabs() {
   const [cars, setCars] = useState([]);
@@ -13,7 +14,7 @@ function Cabs() {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/cars");
+        const res = await axios.get(`${API_BASE_URL}/cars`);
         setCars(res.data);
       } catch (error) {
         console.error("Error fetching cars:", error);

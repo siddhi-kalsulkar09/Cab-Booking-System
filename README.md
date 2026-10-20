@@ -70,7 +70,12 @@ CAB-BOOKING/
 ├── .gitignore
 └── README.md
 
+## Production deployment (Render)
 
+- Deploy `server/` as a Render **Web Service** running `npm start`. Its root URL must serve the Express API, not the client’s Vite HTML.
+- Set `CLIENT_ORIGIN` on the backend to the deployed frontend origin, for example `https://cab-booking-system-client.onrender.com`.
+- Set `VITE_API_URL` on the frontend to the backend API root, including `/api`, for example `https://<backend-web-service>.onrender.com/api`, then redeploy the frontend. The current `cab-booking-system-6.onrender.com` URL serves the frontend and must not be used as the API URL.
+- For local development, `VITE_API_URL` can be omitted; it defaults to `http://localhost:8000/api`.
 
 ## 👩‍💻 Author
 
@@ -82,4 +87,3 @@ GitHub: https://github.com/siddhi-kalsulkar09
 ## ⭐ If you like this project
 
 Give it a ⭐ on GitHub!
-

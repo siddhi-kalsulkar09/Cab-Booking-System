@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import { API_BASE_URL } from "../utils/constants";
 
 function BookRide() {
   const { id } = useParams();
@@ -24,7 +25,7 @@ function BookRide() {
   useEffect(() => {
     const fetchCar = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/api/cars/${id}`);
+        const res = await axios.get(`${API_BASE_URL}/cars/${id}`);
         setCar(res.data);
       } catch (error) {
         console.error(error);
@@ -65,7 +66,7 @@ function BookRide() {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        "http://localhost:8000/api/bookings",
+        `${API_BASE_URL}/bookings`,
         {
           carId: id,
           pickupLocation: form.pickupLocation,

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import AdminNavbar from "../../components/AdminNavbar";
+import { API_BASE_URL, SERVER_URL } from "../../utils/constants";
 
 const FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=250&fit=crop";
@@ -26,7 +27,7 @@ function AdminCabs() {
 
   const fetchCars = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/cars");
+      const res = await axios.get(`${API_BASE_URL}/cars`);
       setCars(res.data);
     } catch (error) {
       console.error("Error fetching cars:", error);
@@ -45,7 +46,7 @@ function AdminCabs() {
 
     try {
       const token = localStorage.getItem("adminToken");
-      await axios.delete(`http://localhost:8000/api/cars/${id}`, {
+      await axios.delete(`${API_BASE_URL}/cars/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("Car deleted ✅");
@@ -60,7 +61,7 @@ function AdminCabs() {
     try {
       const token = localStorage.getItem("adminToken");
       await axios.put(
-        `http://localhost:8000/api/cars/toggle/${id}`,
+        `${API_BASE_URL}/cars/toggle/${id}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -119,7 +120,7 @@ function AdminCabs() {
         >
           {cars.map((car) => {
             const imageUrl = car.carImage
-              ? `http://localhost:8000/${car.carImage}`
+              ? `${SERVER_URL}/${car.carImage}`
               : getImageByType(car.carType);
 
             return (

@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import AdminNavbar from "../../components/AdminNavbar";
+import { API_BASE_URL } from "../../utils/constants";
 
 function AdminAddCab() {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ function AdminAddCab() {
         formData.append("carImage", form.carImage);
       }
 
-      await axios.post("http://localhost:8000/api/cars", formData, {
+      await axios.post(`${API_BASE_URL}/cars`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,

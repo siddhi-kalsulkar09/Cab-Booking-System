@@ -15,14 +15,14 @@ connectDB();
 const app = express();
 
 // ==================== MIDDLEWARE ====================
-const allowedOrigins = [
-  "https://cab-booking-system-client.onrender.com",
-  "http://localhost:5173"
-];
+const allowedOrigins = new Set([
+  process.env.CLIENT_ORIGIN || "https://cab-booking-system-client.onrender.com",
+  "http://localhost:5173",
+]);
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.has(origin)) {
       return callback(null, true);
     }
 
@@ -32,13 +32,6 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
   optionsSuccessStatus: 204
-}));
-
-app.options(/.*/, cors({
-  origin: allowedOrigins,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
 }));
 
 app.use(express.json());
@@ -75,5 +68,5 @@ app.use((err, req, res, next) => {
 // ==================== START SERVER ====================
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
-  console.log(`✅ Server running on https://cab-booking-system-6.onrender.com`);
+  console.log(`✅ Server listening on port ${PORT}`);
 });

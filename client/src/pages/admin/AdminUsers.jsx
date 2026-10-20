@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import AdminNavbar from "../../components/AdminNavbar";
+import { API_BASE_URL } from "../../utils/constants";
 
 function AdminUsers() {
   const [users, setUsers] = useState([]);
@@ -11,7 +12,7 @@ function AdminUsers() {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem("adminToken");
-      const res = await axios.get("http://localhost:8000/api/admin/users", {
+      const res = await axios.get(`${API_BASE_URL}/admin/users`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUsers(res.data);
@@ -36,7 +37,7 @@ function AdminUsers() {
 
     try {
       const token = localStorage.getItem("adminToken");
-      await axios.delete(`http://localhost:8000/api/admin/users/${id}`, {
+      await axios.delete(`${API_BASE_URL}/admin/users/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("User deleted ✅");

@@ -1,6 +1,14 @@
 // ==================== API ====================
-export const API_BASE_URL = "http://localhost:8000/api";
-export const SERVER_URL = "http://localhost:8000";
+const configuredApiUrl = import.meta.env.VITE_API_URL;
+
+if (import.meta.env.PROD && !configuredApiUrl) {
+  throw new Error("VITE_API_URL must be set to the deployed backend API URL.");
+}
+
+export const API_BASE_URL = (
+  configuredApiUrl || "http://localhost:8000/api"
+).replace(/\/+$/, "");
+export const SERVER_URL = API_BASE_URL.replace(/\/api$/i, "");
 
 // ==================== ROLES ====================
 export const ROLES = {

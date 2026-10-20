@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import AdminNavbar from "../../components/AdminNavbar";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../utils/constants";
 
 import {
   Chart as ChartJS,
@@ -44,7 +45,7 @@ function AdminDashboard() {
       try {
         const token = localStorage.getItem("adminToken");
         const res = await axios.get(
-          "http://localhost:8000/api/admin/stats",
+          `${API_BASE_URL}/admin/stats`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
 

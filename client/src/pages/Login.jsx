@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
+import { API_BASE_URL } from "../utils/constants";
 
 function Login() {
   const navigate = useNavigate();
@@ -21,11 +22,7 @@ function Login() {
     setLoading(true);
 
     try {
-      const res = await axios.post(
-        // "http://localhost:8000/api/users/login",
-        "https://cab-booking-system-6.onrender.com/api/users/login",
-        form
-      );
+      const res = await axios.post(`${API_BASE_URL}/users/login`, form);
 
       login(res.data);
 

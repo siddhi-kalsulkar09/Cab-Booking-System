@@ -20,7 +20,7 @@ function CabCard({ car }) {
   const navigate = useNavigate();
 
   const imageUrl = car.carImage
-    ? `http://localhost:8000/${car.carImage}`
+    ? `${SERVER_URL}/${car.carImage}`
     : getImageByType(car.carType);
 
   const driverName = car.driver?.name || "To be assigned";
@@ -74,3 +74,4 @@ function CabCard({ car }) {
 }
 
 export default CabCard;
+import { SERVER_URL } from "../utils/constants";

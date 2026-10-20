@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import AdminNavbar from "../../components/AdminNavbar";
+import { API_BASE_URL, SERVER_URL } from "../../utils/constants";
 
 function AdminEditCab() {
   const { id } = useParams();
@@ -26,7 +27,7 @@ function AdminEditCab() {
   useEffect(() => {
     const fetchCar = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/api/cars/${id}`);
+        const res = await axios.get(`${API_BASE_URL}/cars/${id}`);
         const car = res.data;
 
         setForm({
@@ -42,7 +43,7 @@ function AdminEditCab() {
         });
 
         if (car.carImage) {
-          setPreview(`http://localhost:8000/${car.carImage}`);
+          setPreview(`${SERVER_URL}/${car.carImage}`);
         }
       } catch (error) {
         console.error(error);
@@ -87,7 +88,7 @@ function AdminEditCab() {
         formData.append("carImage", form.carImage);
       }
 
-      await axios.put(`http://localhost:8000/api/cars/${id}`, formData, {
+      await axios.put(`${API_BASE_URL}/cars/${id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
