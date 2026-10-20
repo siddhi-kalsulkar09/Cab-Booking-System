@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import API from "../services/api"
 import Navbar from "../components/Navbar";
 
 function BookRide() {
@@ -24,7 +25,7 @@ function BookRide() {
   useEffect(() => {
     const fetchCar = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/api/cars/${id}`);
+        const res = await API.get(`/cars/${id}`);
         setCar(res.data);
       } catch (error) {
         console.error(error);
@@ -64,8 +65,8 @@ function BookRide() {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.post(
-        "http://localhost:8000/api/bookings",
+      await API.post(
+        "/bookings",
         {
           carId: id,
           pickupLocation: form.pickupLocation,

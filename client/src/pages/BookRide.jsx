@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import API from "../services/api"
 import Navbar from "../components/Navbar";
 
 function BookRide() {
@@ -38,7 +39,7 @@ function BookRide() {
   useEffect(() => {
     const fetchCar = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/api/cars/${id}`);
+        const res = await API.get(`/cars/${id}`);
         setCar(res.data);
       } catch (error) {
         alert("Car not found");
@@ -68,8 +69,8 @@ function BookRide() {
       setDistanceError("");
 
       try {
-        const res = await axios.post(
-          "http://localhost:8000/api/bookings/calculate-distance",
+        const res = await API.post(
+          "/bookings/calculate-distance",
           {
             pickup: form.pickupLocation,
             drop: form.dropLocation,
@@ -133,8 +134,8 @@ function BookRide() {
     setSubmitting(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post(
-        "http://localhost:8000/api/bookings",
+      const res = await API.post(
+        "/bookings",
         {
           carId: id,
           pickupLocation: form.pickupLocation,
@@ -184,8 +185,8 @@ function BookRide() {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.post(
-        "http://localhost:8000/api/payments",
+      await API.post(
+        "/payments",
         {
           bookingId: pendingBooking._id,
           amount: estimatedFare,

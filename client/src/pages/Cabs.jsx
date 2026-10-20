@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API from "../services/api"
 import Navbar from "../components/Navbar";
 import CabCard from "../components/CabCard";
 
@@ -13,7 +14,7 @@ function Cabs() {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/cars");
+        const res = await API.get("/cars");
         setCars(res.data);
       } catch (error) {
         console.error("Error fetching cars:", error);

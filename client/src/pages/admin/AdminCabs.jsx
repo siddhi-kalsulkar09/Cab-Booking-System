@@ -26,7 +26,7 @@ function AdminCabs() {
 
   const fetchCars = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/cars");
+      const res = await API.get("/cars");
       setCars(res.data);
     } catch (error) {
       console.error("Error fetching cars:", error);
@@ -45,7 +45,7 @@ function AdminCabs() {
 
     try {
       const token = localStorage.getItem("adminToken");
-      await axios.delete(`http://localhost:8000/api/cars/${id}`, {
+      await API.delete(`/cars/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("Car deleted ✅");
@@ -59,8 +59,8 @@ function AdminCabs() {
   const toggleAvailable = async (id) => {
     try {
       const token = localStorage.getItem("adminToken");
-      await axios.put(
-        `http://localhost:8000/api/cars/toggle/${id}`,
+      await API.put(
+        `/cars/toggle/${id}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

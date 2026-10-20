@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import API from "../services/api"
 import { useNavigate } from "react-router-dom";
 import AdminNavbar from "../../components/AdminNavbar";
 
@@ -50,7 +51,7 @@ function AdminAddCab() {
         formData.append("carImage", form.carImage);
       }
 
-      await axios.post("http://localhost:8000/api/cars", formData, {
+      await API.post("/cars", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
