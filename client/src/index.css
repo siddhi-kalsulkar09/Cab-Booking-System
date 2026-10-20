@@ -1,0 +1,510 @@
+/* ==================== GLOBAL RESET ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f4f6f8;
+  color: #1a1a2e;
+  line-height: 1.5;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ==================== TOPBAR ==================== */
+.topbar {
+  background-color: #f4b400;
+  padding: 14px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-link {
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.login-link:hover {
+  opacity: 0.75;
+}
+
+/* ==================== HERO / LANDING ==================== */
+.hero-container {
+  background-color: #fdf3d1;
+  text-align: center;
+  padding: 100px 20px;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #1a1a2e;
+}
+
+.hero-subtitle {
+  margin-bottom: 25px;
+  color: #555;
+  font-size: 16px;
+}
+
+.explore-btn {
+  background-color: black;
+  color: white;
+  padding: 12px 26px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+.explore-btn:hover {
+  background-color: #333;
+}
+
+.image-placeholder {
+  width: 350px;
+  height: 220px;
+  margin: 0 auto;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  font-size: 14px;
+}
+
+/* ==================== AUTH PAGES ==================== */
+.auth-wrapper {
+  background-color: #f5e6b3;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.auth-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 380px;
+  padding: 36px 30px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-bottom: 22px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 11px 14px;
+  margin-bottom: 14px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #f4b400;
+  box-shadow: 0 0 0 3px rgba(244, 180, 0, 0.15);
+  background-color: #fff;
+}
+
+.auth-black-btn {
+  width: 100%;
+  padding: 12px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 5px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+.auth-black-btn:hover:not(:disabled) {
+  background: #333;
+}
+
+.auth-black-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-yellow-btn {
+  width: 100%;
+  padding: 12px;
+  background: #f4b400;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+.auth-yellow-btn:hover {
+  background: #ffb52a;
+}
+
+.auth-text {
+  font-size: 13px;
+  margin-top: 15px;
+  color: #555;
+}
+
+/* ==================== USER HOME ==================== */
+.user-home-container {
+  padding: 40px;
+  background-color: #fdf3d1;
+  min-height: 90vh;
+}
+
+.welcome-section {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.welcome-section h2 {
+  font-size: 30px;
+  margin-bottom: 6px;
+  color: #1a1a2e;
+}
+
+.welcome-section p {
+  color: #666;
+  font-size: 15px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dashboard-card {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+  border: 2px solid transparent;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  border-color: #f4b400;
+}
+
+.dashboard-card h3 {
+  margin-bottom: 10px;
+  color: #1a1a2e;
+}
+
+.dashboard-card p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* ==================== NAVBAR ==================== */
+.navbar {
+  background-color: #f4b400;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links span {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.nav-links span:hover {
+  color: white;
+}
+
+.logout-btn {
+  background: black;
+  color: white;
+  border: none;
+  padding: 7px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+
+.logout-btn:hover {
+  opacity: 0.85;
+}
+
+/* ==================== CABS PAGE ==================== */
+.cabs-container {
+  background-color: #fdf3d1;
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.cabs-title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #1a1a2e;
+}
+
+.cabs-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.cabs-controls input,
+.cabs-controls select {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  min-width: 220px;
+}
+
+.cabs-controls input:focus,
+.cabs-controls select:focus {
+  outline: none;
+  border-color: #f4b400;
+}
+
+.cabs-controls button {
+  background: #f4b400;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.cabs-controls button:hover {
+  background: #ffb52a;
+}
+
+.cabs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* ==================== CAB CARD ==================== */
+.cab-card {
+  background: #f4cc62;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cab-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.cab-card h3 {
+  margin: 8px 0;
+  color: #1a1a2e;
+}
+
+.cab-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.cab-info p,
+.cab-details p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #444;
+}
+
+.book-btn {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #ffb000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.book-btn:hover:not(:disabled) {
+  background: #e09c00;
+}
+
+.book-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* ==================== PAGE CONTAINER ==================== */
+.page-container {
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+.card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* ==================== GLOBAL BUTTONS ==================== */
+.black-btn {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.black-btn:hover:not(:disabled) {
+  background: #2d2d4a;
+}
+
+.black-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ==================== SCROLLBAR ==================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .topbar,
+  .navbar {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .hero-title {
+    font-size: 30px;
+  }
+
+  .hero-container {
+    padding: 60px 20px;
+    margin: 10px;
+  }
+
+  .welcome-section h2 {
+    font-size: 24px;
+  }
+
+  .user-home-container,
+  .cabs-container {
+    padding: 20px;
+  }
+
+  .cabs-controls input,
+  .cabs-controls select {
+    min-width: 100%;
+  }
+
+  .auth-card {
+    padding: 28px 20px;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+}

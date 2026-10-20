@@ -1,0 +1,402 @@
+/* ==================== RESET & BASE ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #1a1a2e;
+  background: #f4f6f8;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ==================== APP ROOT ==================== */
+#root {
+  min-height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* ==================== TOPBAR (Landing / Auth Pages) ==================== */
+.topbar {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.topbar .login-link {
+  cursor: pointer;
+  color: #f4a300;
+  transition: opacity 0.2s;
+}
+
+.topbar .login-link:hover {
+  opacity: 0.8;
+}
+
+/* ==================== AUTH PAGES ==================== */
+.auth-wrapper {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: #e6d8b5;
+}
+
+.auth-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-bottom: 24px;
+  color: #1a1a2e;
+  font-size: 24px;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #f4a300;
+  box-shadow: 0 0 0 3px rgba(244, 163, 0, 0.15);
+}
+
+.auth-black-btn {
+  width: 100%;
+  padding: 12px;
+  background: #1a1a2e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 12px;
+}
+
+.auth-black-btn:hover:not(:disabled) {
+  background: #2d2d4a;
+}
+
+.auth-black-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-yellow-btn {
+  width: 100%;
+  padding: 12px;
+  background: #f4a300;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.auth-yellow-btn:hover {
+  background: #ffb52a;
+}
+
+.auth-text {
+  font-size: 13px;
+  color: #666;
+  margin: 12px 0 8px;
+}
+
+/* ==================== USER HOME ==================== */
+.user-home-container {
+  padding: 40px 20px;
+  min-height: calc(100vh - 60px);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.welcome-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.welcome-section h2 {
+  font-size: 32px;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+}
+
+.welcome-section p {
+  font-size: 16px;
+  color: #666;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.dashboard-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 2px solid transparent;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  border-color: #f4a300;
+}
+
+.dashboard-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #1a1a2e;
+}
+
+.dashboard-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* ==================== CABS PAGE ==================== */
+.cabs-container {
+  padding: 30px 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.cabs-title {
+  text-align: center;
+  font-size: 28px;
+  color: #1a1a2e;
+  margin-bottom: 24px;
+}
+
+.cabs-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.cabs-controls input,
+.cabs-controls select {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  min-width: 220px;
+}
+
+.cabs-controls button {
+  padding: 10px 18px;
+  background: #f4a300;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cabs-controls button:hover {
+  background: #ffb52a;
+}
+
+.cabs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* ==================== CAB CARD ==================== */
+.cab-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cab-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.cab-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cab-card h3 {
+  margin: 12px 0 8px;
+  font-size: 18px;
+  color: #1a1a2e;
+}
+
+.cab-details p {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.book-btn {
+  width: 100%;
+  padding: 11px;
+  margin-top: 12px;
+  background: #f4a300;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.book-btn:hover:not(:disabled) {
+  background: #ffb52a;
+}
+
+.book-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* ==================== PAGE CONTAINER ==================== */
+.page-container {
+  padding: 40px 20px;
+  min-height: calc(100vh - 60px);
+}
+
+.card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* ==================== GLOBAL BUTTONS ==================== */
+.black-btn {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.black-btn:hover:not(:disabled) {
+  background: #2d2d4a;
+}
+
+.black-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ==================== UTILITY ==================== */
+.text-center {
+  text-align: center;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+/* ==================== SCROLLBAR ==================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .topbar {
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+
+  .welcome-section h2 {
+    font-size: 24px;
+  }
+
+  .cabs-container {
+    padding: 20px;
+  }
+
+  .cabs-controls input,
+  .cabs-controls select {
+    min-width: 100%;
+  }
+
+  .auth-card {
+    padding: 30px 20px;
+  }
+}
