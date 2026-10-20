@@ -6,6 +6,7 @@ import BookingCard from "../../components/BookingCard";
 
 function AdminBookings() {
   const [bookings, setBookings] = useState([]);
+  const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
 
@@ -17,6 +18,8 @@ function AdminBookings() {
         headers: { Authorization: `Bearer ${token}` },
       });
       setBookings(res.data);
+      const carsRes = await API.get("/cars");
+      setCars(carsRes.data);
     } catch (error) {
       console.error("Error fetching bookings:", error);
       alert(error.response?.data?.message || "Failed to load bookings ❌");
@@ -145,6 +148,7 @@ function AdminBookings() {
               <div key={booking._id} style={{ position: "relative" }}>
                 <BookingCard
                   booking={booking}
+                  cars={cars}
                   isAdmin={true}
                   onStatusUpdate={handleStatusUpdate}
                 />

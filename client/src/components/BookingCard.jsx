@@ -1,6 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
-function BookingCard({ booking, onCancel, isAdmin = false, onStatusUpdate }) {
+function BookingCard({
+  booking,
+  cars = [],
+  onCancel,
+  isAdmin = false,
+  onStatusUpdate,
+}) {
   const navigate = useNavigate();
 
   // Status color mapping
@@ -26,7 +32,16 @@ function BookingCard({ booking, onCancel, isAdmin = false, onStatusUpdate }) {
 
   const carName = booking.carId?.carName || "N/A";
   const carNumber = booking.carId?.carNumber || "N/A";
-  const driverName = booking.driver?.name || "To be assigned";
+  const bookingCarId = booking.carId?._id || booking.carId;
+  const car = cars.find(
+    (listedCar) => String(listedCar._id) === String(bookingCarId)
+  );
+  const driver =
+    car?.driver?.name ||
+    car?.driver ||
+    booking.driver?.name ||
+    booking.driver ||
+    "To be assigned";
   const userName = booking.userId?.name || "N/A";
   const userPhone = booking.userId?.phone || "";
 
@@ -68,7 +83,7 @@ function BookingCard({ booking, onCancel, isAdmin = false, onStatusUpdate }) {
           </p>
         )}
         <p style={rowStyle}>
-          <strong>👨‍✈️ Driver:</strong> {booking.driver}
+          <strong>👨‍✈️ Driver:</strong> {driver}
         </p>
         <p style={{ ...rowStyle, marginTop: "10px", fontSize: "16px" }}>
           <strong>💰 Fare:</strong>{" "}

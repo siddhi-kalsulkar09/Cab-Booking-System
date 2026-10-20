@@ -6,6 +6,7 @@ import BookingCard from "../components/BookingCard";
 
 function MyBookings() {
   const [bookings, setBookings] = useState([]);
+  const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
 
   // ==================== FETCH BOOKINGS ====================
@@ -21,6 +22,8 @@ function MyBookings() {
       );
 
       setBookings(res.data);
+      const carsRes = await API.get("/cars");
+      setCars(carsRes.data);
     } catch (error) {
       console.error("Error fetching bookings:", error);
       alert(error.response?.data?.message || "Failed to load bookings ❌");
@@ -106,6 +109,7 @@ function MyBookings() {
               <BookingCard
                 key={booking._id}
                 booking={booking}
+                cars={cars}
                 onCancel={handleCancel}
               />
             ))}
