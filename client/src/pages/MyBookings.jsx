@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API from "../services/api";
 import Navbar from "../components/Navbar";
 import BookingCard from "../components/BookingCard";
 
@@ -12,8 +13,8 @@ function MyBookings() {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await axios.get(
-        "http://localhost:8000/api/bookings/my",
+      const res = await API.get(
+        "/bookings/my",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -42,8 +43,8 @@ function MyBookings() {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.put(
-        `http://localhost:8000/api/bookings/cancel/${bookingId}`,
+      await API.put(
+        `/bookings/cancel/${bookingId}`,
         { reason: "Cancelled by user" },
         { headers: { Authorization: `Bearer ${token}` } }
       );
