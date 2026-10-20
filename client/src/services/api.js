@@ -13,10 +13,7 @@ const API_URL = "https://cab-booking-system-server1.onrender.com/api" || "http:/
 
 const API = axios.create({
   // Fallback to localhost if the environment variable isn't set yet
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api',
-  headers: {
-    "Content-Type": "application/json",
-  },
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api'
 });
 
 // ==================== REQUEST INTERCEPTOR ====================
