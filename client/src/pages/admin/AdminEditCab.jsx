@@ -43,7 +43,7 @@ function AdminEditCab() {
         });
 
         if (car.carImage) {
-          setPreview(`http://localhost:8000/${car.carImage}`);
+          setPreview(`https://cab-booking-system-server1.onrender.com/${car.carImage}`);
         }
       } catch (error) {
         console.error(error);
