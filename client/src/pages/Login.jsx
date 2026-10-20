@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import API from "../services/api"
 import { useAuth } from "../context/AuthContext";
 
 function Login() {
@@ -21,11 +22,15 @@ function Login() {
     setLoading(true);
 
     try {
-      const res = await axios.post(
-        "https://cab-booking-system-server1.onrender.com/api/users/login",
-        form
-      );
 
+      // 2. Change 'axios.post' to 'API.post' and pass just the endpoint path
+      // It will automatically use localhost locally or Render in production
+      const res = await API.post("/users/login", form);
+      // const res = await axios.post(
+      //   "https://cab-booking-system-server1.onrender.com/api/users/login",
+      //   form
+      // );
+      // import.meta.env.VITE_API_BASE_URL
       login(res.data);
 
       alert("Login Successful ✅");
