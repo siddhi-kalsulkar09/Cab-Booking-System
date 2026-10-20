@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import API from "../services/api"
+import API from "../services/api";
 import Navbar from "../components/Navbar";
 
 function BookRide() {
