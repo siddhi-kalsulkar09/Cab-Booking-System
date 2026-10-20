@@ -15,10 +15,27 @@ connectDB();
 const app = express();
 
 // ==================== MIDDLEWARE ====================
+const allowedOrigins = [
+  "https://cab-booking-system-client.onrender.com",
+  "http://localhost:5173"
+];
+
 app.use(cors({
-  origin: [
-    "https://cab-booking-system-client.onrender.com"
-  ],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error("Origin not allowed by CORS"));
+  },
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+  optionsSuccessStatus: 204
+}));
+
+app.options(/.*/, cors({
+  origin: allowedOrigins,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
