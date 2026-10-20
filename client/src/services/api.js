@@ -1,8 +1,11 @@
 import axios from "axios";
 
+// Change from: const API_URL = "http://localhost:8000/api";
+const API_URL = "https://cab-booking-system-server1.onrender.com/api" || "http://localhost:8000/api";
+
 // ==================== AXIOS INSTANCE ====================
 const API = axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: API_URL,
   headers: {
     "Content-Type": "application/json",
   },
