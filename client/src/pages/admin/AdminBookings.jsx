@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API from "../../services/api";
 import AdminNavbar from "../../components/AdminNavbar";
 import BookingCard from "../../components/BookingCard";
 
@@ -12,7 +13,7 @@ function AdminBookings() {
   const fetchBookings = async () => {
     try {
       const token = localStorage.getItem("adminToken");
-      const res = await axios.get("http://localhost:8000/api/admin/bookings", {
+      const res = await API.get("/admin/bookings", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setBookings(res.data);
@@ -32,8 +33,8 @@ function AdminBookings() {
   const handleStatusUpdate = async (bookingId, newStatus) => {
     try {
       const token = localStorage.getItem("adminToken");
-      await axios.put(
-        `http://localhost:8000/api/admin/bookings/${bookingId}`,
+      await API.put(
+        `/admin/bookings/${bookingId}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -52,8 +53,8 @@ function AdminBookings() {
 
     try {
       const token = localStorage.getItem("adminToken");
-      await axios.delete(
-        `http://localhost:8000/api/admin/bookings/${bookingId}`,
+      await API.delete(
+        `/admin/bookings/${bookingId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       alert("Booking deleted ✅");
