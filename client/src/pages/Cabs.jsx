@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import API from "../services/api"
+import API from "../services/api";
 import Navbar from "../components/Navbar";
 import CabCard from "../components/CabCard";
 
