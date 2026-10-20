@@ -38,19 +38,27 @@ This project demonstrates full-stack development skills including:
 
 
 ## ✨ Features
+User Registration
+User Login
+User Profile
+Cab List
+Cab Details
+Book a Cab
+Pickup Location
+Destination
+Date & Time
+Fare calculation
+Booking Confirmation 
+My Bookings
+Cancle Booking
+Booking Status
+Payment
+Driver Details
+Admin Dashboard
+Driver Management
+Cab Management
+Booking Management
 
-### 👤 User Features
-- User Registration & Login
-- Browse Available Cabs
-- Book a Cab
-- View Booking History
-
-### 🛠️ Admin Features
-- Admin Dashboard
-- View All Users
-- Add New Cabs
-- Manage Cabs
-- View All Bookings
 
 
 
@@ -63,23 +71,13 @@ CAB-BOOKING/
 └── README.md
 
 
-## 📌 Future Improvements
-
-- Payment Integration
-- Google Maps API Integration
-- Ride Tracking
-- Email Notifications
-- Deployment on AWS / Render
-
-
 
 ## 👩‍💻 Author
 
-**Prachi Shinde**  
-B.Tech Student – CSE-Artificial Intelligence & Machine Learning  
-Aspiring Software Development Engineer (SDE)
+**Siddhi Kalsulkar**  
+Siddhi Kalsulkar TY Bsc Computer Science MERN Project
 
-GitHub: https://github.com/PrachiShinde-23
+GitHub: https://github.com/siddhi-kalsulkar09
 
 ## ⭐ If you like this project
 
